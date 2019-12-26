@@ -1,5 +1,7 @@
 package com.hang.security.springmvc.model;
 
+import java.util.Set;
+
 public class UserDto {
 
     public static final String SESSION_USER_KEY="_user";
@@ -9,15 +11,26 @@ public class UserDto {
     private String fullname;
     private String mobilephone;
 
+    private Set<String> authentices;
+
     public UserDto() {
     }
 
-    public UserDto(String id, String username, String password, String fullname, String mobilephone) {
+    public UserDto(String id, String username, String password, String fullname, String mobilephone , Set<String> authentices) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.mobilephone = mobilephone;
+        this.authentices = authentices;
+    }
+
+    public Set<String> getAuthentices() {
+        return authentices;
+    }
+
+    public void setAuthentices(Set<String> authentices) {
+        this.authentices = authentices;
     }
 
     public String getId() {

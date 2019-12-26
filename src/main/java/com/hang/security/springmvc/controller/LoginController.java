@@ -26,8 +26,17 @@ public class LoginController {
         return user.getFullname()+"denglu成功";
     }
 
-    @RequestMapping(value = "/r/r2",produces = {"text/plain;charset=utf-8"})
+    @RequestMapping(value = "/r/r1",produces = {"text/plain;charset=utf-8"})
     public String r1(HttpSession session){
+        if(session.getAttribute(UserDto.SESSION_USER_KEY)==null){
+            return "session 中无数据";
+        }
+        UserDto userDto = (UserDto)session.getAttribute(UserDto.SESSION_USER_KEY);
+        return userDto.getFullname()+"已经存入session中";
+    }
+
+    @RequestMapping(value = "/r/r2",produces = {"text/plain;charset=utf-8"})
+    public String r2(HttpSession session){
         if(session.getAttribute(UserDto.SESSION_USER_KEY)==null){
             return "session 中无数据";
         }
